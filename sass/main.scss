@@ -1,0 +1,18 @@
+// Put any @imports here
+// See Readme for a list of supported ones
+@import 'foundation';
+body {
+  background: #e2ebf3;
+}
+
+.addImgs{
+  width: 40%;
+  margin: 0 auto;
+}
+.imgThumbs{
+  width: 20%;
+  height: 300px;
+  margin: 2% 2%;
+  float: left;
+  overflow: hidden;
+}
