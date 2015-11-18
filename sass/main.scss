@@ -1,6 +1,7 @@
 // Put any @imports here
 // See Readme for a list of supported ones
 @import 'foundation';
+@import 'font-awesome';
 body {
   background: #e2ebf3;
 }
@@ -11,8 +12,15 @@ body {
 }
 .imgThumbs{
   width: 20%;
-  height: 300px;
+  height: 330px;
   margin: 2% 2%;
   float: left;
   overflow: hidden;
+}
+.fa{
+  max-height: 0;
+  overflow: hidden;
+}
+.displayed{
+  max-height: 30px;
 }
