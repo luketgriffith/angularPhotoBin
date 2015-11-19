@@ -7,9 +7,17 @@ let HomeController = function($http, PARSE, HomeService){
     vm.imageList= res.data.results;
     
   })
+  vm.custom = true;
   vm.likeClick= function(){
     vm.likes=vm.likes+1;
+      vm.custom = vm.custom === false ? true: false;
+      
+        
+      
+    
   }
+  
+
 }
 HomeController.$inject= ['$http', 'PARSE', 'HomeService']
 export default HomeController;

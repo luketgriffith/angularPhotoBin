@@ -19,7 +19,7 @@ function homeScreen (HomeService) {
     },
     template: `<div class='imgThumbs' ng-dblclick="vm.likeClick()" ng-init="vm.likes=0">
         <h4>{{i.title}}</h4>
-        <i id="icon" class="fa fa-heart"></i>
+        <i id="icon" class="fa fa-heart" ng-hide="vm.custom"></i>
         <img src={{i.url}}>
         <h5>{{i.caption}}</h5><span>Likes: {{vm.likes}}</span>
 
@@ -27,16 +27,10 @@ function homeScreen (HomeService) {
     </div>`,
     controller: 'HomeController as vm',
     link: function (scope, element, attrs) {
+        
       
-      element.on('dblclick', function () {
-
-        $('#icon').toggleClass('displayed')
-        setTimeout(function(){
-          $('#icon').toggleClass('displayed')
-
-        }, 1000)
-      });
-    
+      
+          
     }
   }
 }

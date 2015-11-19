@@ -8421,10 +8421,6 @@ body {
   float: left;
   overflow: hidden; }
 
-.fa {
-  max-height: 0;
-  overflow: hidden; }
-
 .displayed {
   max-height: 30px; }
 
