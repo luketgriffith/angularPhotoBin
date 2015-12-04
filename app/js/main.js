@@ -138,10 +138,10 @@ var HomeController = function HomeController($http, PARSE, HomeService) {
 
     vm.imageList = res.data.results;
   });
-  vm.custom = true;
+  // vm.custom = true;
   vm.likeClick = function () {
     vm.likes = vm.likes + 1;
-    vm.custom = vm.custom === false ? true : false;
+    // vm.custom = vm.custom === false ? true: false;
   };
 };
 HomeController.$inject = ['$http', 'PARSE', 'HomeService'];
@@ -193,7 +193,7 @@ var _controllersHomeService2 = _interopRequireDefault(_controllersHomeService);
 
 _angular2['default'].module('app.layout', []).controller('HomeController', _controllersHomeController2['default']).service('HomeService', _controllersHomeService2['default']).directive('homeScreen', homeScreen);
 
-function homeScreen(HomeService) {
+function homeScreen($timeout) {
   return {
 
     restrict: 'AE', // E = Element, A = Attribute
@@ -201,9 +201,15 @@ function homeScreen(HomeService) {
     scope: {
       i: '=image'
     },
-    template: '<div class=\'imgThumbs\' ng-dblclick="vm.likeClick()" ng-init="vm.likes=0">\n        <h4>{{i.title}}</h4>\n        <i id="icon" class="fa fa-heart" ng-hide="vm.custom"></i>\n        <img src={{i.url}}>\n        <h5>{{i.caption}}</h5><span>Likes: {{vm.likes}}</span>\n\n\n    </div>',
+    template: '<div class=\'imgThumbs\' ng-dblclick="vm.likeClick()" ng-init="vm.likes=0">\n        <h4>{{i.title}}</h4>\n        <i id="icon" class="fa fa-heart"></i>\n        <img ng-src={{i.url}}>\n        <h5>{{i.caption}}</h5><span>Likes: {{vm.likes}}</span>\n\n\n    </div>',
     controller: 'HomeController as vm',
-    link: function link(scope, element, attrs) {}
+    link: function link(scope, element, attrs) {
+      element.on('dblclick', function () {
+        var x = element.find('fa');
+        x.addClass('displayed');
+        $timeout(x.removeClass('displayed'), 1000);
+      });
+    }
   };
 }
 

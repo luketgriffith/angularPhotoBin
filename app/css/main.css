@@ -8416,12 +8416,15 @@ body {
 
 .imgThumbs {
   width: 20%;
-  height: 330px;
+  height: 350px;
   margin: 2% 2%;
   float: left;
   overflow: hidden; }
 
-.displayed {
-  max-height: 30px; }
+.fa {
+  max-height: 0px;
+  overflow: hidden; }
+  .fa.displayed {
+    max-height: 30px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -9,7 +9,7 @@ angular
   .directive('homeScreen', homeScreen)
 ;
 
-function homeScreen (HomeService) {
+function homeScreen ($timeout) {
   return {
 
     restrict: 'AE', // E = Element, A = Attribute
@@ -19,15 +19,22 @@ function homeScreen (HomeService) {
     },
     template: `<div class='imgThumbs' ng-dblclick="vm.likeClick()" ng-init="vm.likes=0">
         <h4>{{i.title}}</h4>
-        <i id="icon" class="fa fa-heart" ng-hide="vm.custom"></i>
-        <img src={{i.url}}>
+        <i id="icon" class="fa fa-heart"></i>
+        <img ng-src={{i.url}}>
         <h5>{{i.caption}}</h5><span>Likes: {{vm.likes}}</span>
 
 
     </div>`,
     controller: 'HomeController as vm',
     link: function (scope, element, attrs) {
-        
+        element.on('dblclick', function(){
+          let x = element.find('fa')
+          x.addClass('displayed');
+          $timeout(
+
+            x.removeClass('displayed')
+          , 1000)
+        })
       
       
           
